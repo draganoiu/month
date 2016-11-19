@@ -4,4 +4,6 @@ class Item < ApplicationRecord
   
   validates :title, presence: true
     validates :text, presence: true
+
+    acts_as_votable
 end
