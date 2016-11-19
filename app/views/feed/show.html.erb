@@ -4,21 +4,8 @@
     <div class="col-md-4">
       <div class="card">
         <div class="card-block">
-        <h4 class="card-title"><%= @user.username%></h4>
-        <p class="card-text"><%= @user.name  %></p>
-
-        <% if user_signed_in?%>
-        
-          <% if current_user.following?(@user)%>
-
-
-               <p class="card-text"><%= link_to 'Unfollow', unfollow_user_path(@user.username),method: :delete%></p>
-               <%else%>
-              <p class="card-text"><%= link_to 'Follow', follow_user_path(@user.username),method: :post%></p>
-          <%end%>
-
-         <%end%>
-
+        <h4 class="card-title">Your Account</h4>
+        <p class="card-text"><%= link_to current_user.username, user_path(current_user.username)  %></p>
         </div>
         
       </div>
@@ -26,6 +13,9 @@
 
     <div class="col-md-8">
 
+      <% if user_signed_in?%>
+        <%= link_to 'New Tweet', new_tweet_path %>
+       <%end%>
 
 
        <ul class="list-group">

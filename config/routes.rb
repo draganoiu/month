@@ -1,17 +1,28 @@
 Rails.application.routes.draw do
-  get 'users/:username', to: 'users#show' , as: 'user'
 
-  resources :items
-  resources :tweets
-  devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
 
   as :user do
-  	get "signin" => 'devise/sessions#new'
-  	delete "signout" => 'devise/sessions#destroy'
-  	get 'signup' => 'devise/registrations#new'
+    get "signin" => 'devise/sessions#new'
+    delete "signout" => 'devise/sessions#destroy'
+    get 'signup' => 'devise/registrations#new'
 end
+
+  get 'feed', to: 'feed#show'
+
+  resources :users, only: :show, param: :username do
+    member do
+      post 'follow', to: 'follows#create'
+      delete 'unfollow', to: 'follows#destroy'
+    end
+  end
+
+  
+  resources :items
+  resources :tweets
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  
   
   root 'pages#home'
 
