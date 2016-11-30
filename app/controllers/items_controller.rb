@@ -10,11 +10,13 @@ before_action :authenticate_user!, except: [:index, :show]
   # GET /items/1.json
   def show
     @item = Item.find(params[:id])
+    @comments = Comment.where(item_id: @item).order("created_at DESC")
   end
 
   # GET /items/new
   def new
     @item = current_user.items.new
+
   end
 
   # GET /items/1/edit

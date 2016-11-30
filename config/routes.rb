@@ -17,10 +17,17 @@ end
       delete 'unfollow', to: 'follows#destroy'
     end
   end
+  
+resources :items do
+  resources:comments
+
+end
+
 
   
   resources :items do
     member do
+      
       post 'vote', to: 'votes#create'
       delete 'unvote', to: 'votes#destroy'
 

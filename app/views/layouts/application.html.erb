@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Grup crestin</title>
+    <title>Group</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -27,7 +27,9 @@
           
           <li class="nav-item"><%= link_to "Tweets", tweets_path, class: "nav-link" %></li>
 
-          <li class="nav-item"><%= link_to "Lessons&Fun", items_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Lessons", items_path, class: "nav-link" %></li>
+
+          <li class="nav-item"><%= link_to "Feed", feed_path, class: "nav-link" %></li>
 
           <%if user_signed_in? %>
 
@@ -35,9 +37,10 @@
 
 
           <%else%>
+          <li class="nav-item pull-md-right"><%= link_to "Sign up", signup_path, class: "btn btn-primary btn-lg active" %></li>
 
-            <li class="nav-item pull-md-right"><%= link_to "Sign in", signin_path, class: "btn btn-primary" %></li>
-            <li class="nav-item pull-md-right"><%= link_to "Sign up", signup_path, class: "btn btn-primary" %></li>
+            <li class="nav-item pull-md-right"><%= link_to "Sign in", signin_path, class: "btn btn-secondary btn-lg " %></li>
+            
           <%end%>
 
         </ul>
