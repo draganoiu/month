@@ -18,14 +18,12 @@ end
     end
   end
   
-resources :items do
-  resources:comments
 
-end
 
 
   
   resources :items do
+    resources:comments
     member do
       
       post 'vote', to: 'votes#create'

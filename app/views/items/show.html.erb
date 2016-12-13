@@ -2,32 +2,38 @@
 <div class="container">
 	<p>
 	  <strong>User:</strong>
-	  <%= @item.user.email %>
+	  <%= @item.user.username %>
 	</p>
 
-	<p>
-	  <strong>Title:</strong>
-	  <%= @item.title %>
-	</p>
+	<h2 align="center"> Title: <%= @item.title%></h2>
 
-	<p>
-	  <strong>Url:</strong>
-	  <%= @item.url %>
-	</p>
-	<%if @item.text?%>
+	<div class="well col-xs-8 col-xs-offset-2">	
+
+		<div class="article-actions">
+
+		<%if @item.text?%>
+
+			<p>
+			 <h4 class="center description"> <strong>Text:</strong></h4>
+			  <%=simple_format (@item.text) %>
+			</p>
+
+		<%end%>
 
 		<p>
-		  <strong>Text:</strong>
-		  <%= @item.text %>
+		  <p class="center description"><strong>Link:</strong></p>
+		  <%= simple_format(@item.url) %>
 		</p>
 
-	<%end%>
+	
 
 	<%= render 'comments/comment'%>
+	<br>
+	<br>
 
 	<% if @item.user == current_user%>
 
-		<%= link_to 'Edit', edit_item_path(@item) %> |
-		<%= link_to 'Back', items_path %>
+		<p align="center"><%= link_to 'Edit', edit_item_path(@item), class: "btn btn-sm btn-primary"  %> |
+		<%= link_to 'Back', items_path,class: "btn btn-sm btn-primary" %></p>
 	<%end%>
 </div>

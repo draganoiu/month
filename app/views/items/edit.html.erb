@@ -1,8 +1,10 @@
 <div class="container">
-	<h1>Editing Item</h1>
+	<h1 align="center">Editing Lesson</h1>
 
 	<%= render 'form', item: @item %>
+	<br>
 
-	<%= link_to 'Show', @item %> |
-	<%= link_to 'Back', items_path %>
+
+	<p align="center"><%= link_to 'Show', @item,class: "btn btn-sm btn-primary" %> |
+	<%= link_to 'Back', items_path,class: "btn btn-sm btn-primary" %></p>
 </div>

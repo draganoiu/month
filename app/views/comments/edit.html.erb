@@ -1,10 +1,16 @@
 
 <div class="container">
-<%= form_for([@item, @comment]) do |f|%>
+	<%= form_for([@item, @comment]) do |f|%>
 
+		<div class="form-group">
+			<%= f.text_field :content,class: "form-control"%>
+		</div>
+		
 
-<%= f.text_field :content%>
-<%=f.submit "Update", class: "btn btn-primary" %>
+		<div class="actions">
+		<%=f.submit "Update",  class: "btn btn-primary" %>
+		</div>
 
-<%end%>
+	<%end%>
+
 </div>

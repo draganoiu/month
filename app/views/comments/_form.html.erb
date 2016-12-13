@@ -1,11 +1,20 @@
-<div class="container">
+<div class="container center">
 
-<%= form_for([@item, @item.comments.build]) do |f|%>
+	<%= form_for([@item, @item.comments.build]) do |f|%>
 
 
-<%= f.text_field :content%>
-<%=f.submit "Submit", class: "btn btn-primary" %>
 
-<%end%>
+		<div class="form-group">
+			<%= f.text_field :content,class: "form-control" %>
+		</div>
+		
+
+		<div class="actions">
+			<%=f.submit "Add", class: "btn btn-primary"  %>
+		<br>
+		</div>
+
+	<%end%>
+	
 
 </div>
