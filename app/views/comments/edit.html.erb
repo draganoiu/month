@@ -6,10 +6,11 @@
 			<%= f.text_field :content,class: "form-control"%>
 		</div>
 		
-
-		<div class="actions">
-		<%=f.submit "Update",  class: "btn btn-primary" %>
-		</div>
+		<%if @comment.user==current_user %>
+			<div class="actions">
+			<%=f.submit "Update",  class: "btn btn-primary" %>
+			</div>
+		<%end%>
 
 	<%end%>
 
