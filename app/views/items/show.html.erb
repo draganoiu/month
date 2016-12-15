@@ -34,6 +34,7 @@
 	<% if @item.user == current_user%>
 
 		<p align="center"><%= link_to 'Edit', edit_item_path(@item), class: "btn btn-sm btn-primary"  %> |
-		<%= link_to 'Back', items_path,class: "btn btn-sm btn-primary" %></p>
+		
 	<%end%>
+	<%= link_to 'Back', items_path,class: "btn btn-sm btn-primary" %></p>
 </div>
