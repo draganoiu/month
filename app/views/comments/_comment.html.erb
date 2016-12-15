@@ -13,8 +13,8 @@
 					<p><%= comment.content%></p>
 
 					<% if current_user == comment.user %>
-						<button type="button" class="btn btn-secondary btn-sm active"><%= link_to "Delete ", [comment.item, comment], method: :delete%></button>
-						<button  type="button" class="btn btn-secondary btn-sm active"><%= link_to 'Edit', edit_item_comment_path(comment.item, comment) %></button>
+						<%= link_to "Delete ", [comment.item, comment], method: :delete,class: "btn btn-secondary btn-sm active"%>
+						<%= link_to 'Edit', edit_item_comment_path(comment.item, comment),class: "btn btn-secondary btn-sm active" %>
 					<%end%>
 
 
