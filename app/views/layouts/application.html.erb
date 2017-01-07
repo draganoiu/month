@@ -22,10 +22,14 @@
 
     
 
-  <nav class="navbar navbar-dark bg-inverse">
+  <nav class="navbar navbar-dark bg-inverse" >
        <div class="container-fluid">
-         <%= link_to "Group", root_path, class: "navbar-brand",id: "logo"  %>
-         <ul class="nav navbar-nav">
+        <div class="navbar-header" >
+         <%= link_to "Musketeer", root_path,class: "navbar-brand",id: "logo"  %>
+         </div>
+
+
+         <ul class="nav navbar-nav" id="myTopnav" >
            
            <li class="nav-item"><%= link_to "About", about_path, class: "nav-link" %></li>
            
@@ -34,6 +38,9 @@
            <li class="nav-item"><%= link_to "Lessons", items_path, class: "nav-link" %></li>
 
            <li class="nav-item"><%= link_to "Feed", feed_path, class: "nav-link" %></li>
+            
+
+
 
            <%if user_signed_in? %>
 
@@ -47,11 +54,17 @@
 
            <%else%>
 
-           <li class="nav-item pull-md-right"><button type="button" class="btn btn-default navbar-btn"><%= link_to "Sign up", signup_path%></button></li>
+           <li class="nav-item pull-md-right "><button type="button" class="btn btn-default btn-sm navbar-btn"><%= link_to "Sign in", signin_path%></button></li>
 
-             <li class="nav-item pull-md-right "><button type="button" class="btn btn-default navbar-btn"><%= link_to "Sign in", signin_path%></button></li>
+           <li class="nav-item pull-md-right"><button type="button" class="btn btn-primary btn-sm navbar-btn"><%= link_to "Sign up", signup_path,class: "nav-link"%></button></li>
+
+             
              
            <%end%>
+            <li class="icon">
+              <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+           </li>
+          
 
          </ul>
        </div>
