@@ -40,6 +40,7 @@ ul.nav  {
     margin: 0;
     padding: 0;
     overflow: hidden;
+
     
 }
 
@@ -50,6 +51,7 @@ ul.nav  li a:hover {background-color: #555;}
 ul.nav  li a {
     display: inline-block;
     color: #f2f2f2;
+
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -76,6 +78,7 @@ ul.nav li.icon {display: none;}
     position: absolute;
     right: 0;
     top: 0;
+
   }
   ul.nav.responsive li {
     float: none;
@@ -85,4 +88,6 @@ ul.nav li.icon {display: none;}
     display: block;
     text-align: left;
   }
+
+
 }
