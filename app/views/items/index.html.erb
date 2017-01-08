@@ -1,12 +1,12 @@
 
-<div class="container center">
+<div class="container">
   <h1 align="center">Lessons</h1>
   
 
 
     
       <% @items.each do |item| %>
-        <div class="row">
+        <div class="row" >
           <div class="col-xs-8 col-xs-offset-2">
             <div class="well well-lg">
                 <div class="article-title">
@@ -17,14 +17,25 @@
 
                 <div class="article-body">
 
-                  <%= truncate(item.text, length: 100) %><br>
-                  <a href= <%=item.url %> target="_blank"> <%=item.url %></a><br>
+                  <%= truncate(item.text, length: 100) %>
+                   <%=item.url %><br>
                   <%= item.votes_for.up.size %>
+
+                  <% if user_signed_in?%>
+                  <% if current_user.voted_up_on? item%>
+                    <%= link_to 'unLike', unvote_item_path(item),method: :delete,class: "btn btn-sm btn-primary"%>
+                      <%else%>
+
+                    <%= link_to 'Like', vote_item_path(item), method: :post ,class: "btn btn-sm btn-primary"%>
+
+                  <%end%>
+                <%end%>
 
                   <div class="article-meta-details">
 
                     <small> Created by: <%= item.user.username if item.user %>, created:  
                             <%= time_ago_in_words(item.created_at)%> ago, updated: <%= time_ago_in_words(item.updated_at)%>
+
 
                                    
                    </small>
@@ -35,7 +46,7 @@
               
               
              
-
+ 
               
               
 
@@ -44,15 +55,7 @@
 
 
               
-                <% if user_signed_in?%>
-                  <% if current_user.voted_up_on? item%>
-                    <%= link_to 'Unvote', unvote_item_path(item),method: :delete,class: "btn btn-sm btn-primary"%>
-                      <%else%>
-
-                    <%= link_to 'Vote', vote_item_path(item), method: :post ,class: "btn btn-sm btn-primary"%>
-
-                  <%end%>
-                <%end%>
+                
                 
 
                 
@@ -62,7 +65,7 @@
                   <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-sm btn-danger" %>
                 <%end%>
               
-            <% end %>
+            
           </div>
         </div>
       </div>
@@ -74,8 +77,9 @@
 
  
 
-  
+  <% end %>
  </div> 
+
   <br>
   <br>
  <h3 align="center"><%= link_to 'New Lesson', new_item_path,class: "btn btn-md btn-primary" %></h3>

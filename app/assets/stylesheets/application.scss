@@ -91,3 +91,47 @@ ul.nav li.icon {display: none;}
 
 
 }
+
+
+
+
+
+
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+
+.footer a:hover {
+  color: #222
+
+}
+
+.footer small {
+  
+  float: left;
+}
+
+.footer ul{
+  
+  float:right;
+  list-style: none;
+}
+
+.footer ul li{
+  
+  float:left;
+  margin-left: 15px;
+}
