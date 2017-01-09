@@ -22,7 +22,7 @@
 
 		<p>
 		  <p class="center description"><strong>Link:</strong></p>
-		  <%= simple_format(@item.url) %>
+		  <%= auto_link(@item.url, :html => { :target => '_blank' }) %>
 		</p>
 
 	

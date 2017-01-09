@@ -10,7 +10,7 @@
 				<div class="comments-list">
 					<% @comments.each do |comment|%>
 					<p><b><%= comment.user.username%></b></p>
-					<p><%= comment.content%></p>
+					<p><%= auto_link(comment.content, :html => { :target => '_blank' })%></p>
 
 					<% if current_user == comment.user %>
 						<%= link_to "Delete ", [comment.item, comment], method: :delete,data: { confirm: 'Are you sure?' },class: "btn btn-sm btn-primary"%>
